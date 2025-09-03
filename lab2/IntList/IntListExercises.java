@@ -31,7 +31,7 @@ public class IntListExercises {
         }
         IntList p = L;
         while (p != null) {
-            int maxVal = max(p);  // 计算从 p 开始的最大值
+            int maxVal = max(p);
             if (firstDigitEqualsLastDigit(maxVal)) {
                 p.first = 0;
             }

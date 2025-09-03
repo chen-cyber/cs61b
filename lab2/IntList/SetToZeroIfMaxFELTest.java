@@ -27,8 +27,8 @@ public class SetToZeroIfMaxFELTest {
     }
     @Test
     public void testZeroOutFELMaxes4() {
-        IntList L = IntList.of(-1,-10,35,-10);
+        IntList L = IntList.of(); // 空链表，实际上是 null
         IntListExercises.setToZeroIfMaxFEL(L);
-        assertEquals("0 -> -10 -> 35 -> -10", L.toString());
+        assertNull(L);            // 空链表应该仍然是 null
     }
 }

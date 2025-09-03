@@ -53,7 +53,7 @@ public class IntListExercises {
      */
     public static boolean firstDigitEqualsLastDigit(int x) {
         int lastDigit = x % 10;
-        while (x >= 10) {
+        while (x >= 10 || x <= -10){
             x = x / 10;
         }
         int firstDigit = x % 10;

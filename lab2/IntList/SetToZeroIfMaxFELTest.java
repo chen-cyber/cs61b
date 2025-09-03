@@ -25,4 +25,10 @@ public class SetToZeroIfMaxFELTest {
         IntListExercises.setToZeroIfMaxFEL(L);
         assertEquals("0 -> 0 -> 35 -> 0 -> 10 -> 0", L.toString());
     }
+    @Test
+    public void testZeroOutFELMaxes4() {
+        IntList L = IntList.of(-1,-10,35,-10);
+        IntListExercises.setToZeroIfMaxFEL(L);
+        assertEquals("0 -> -10 -> 35 -> -10", L.toString());
+    }
 }

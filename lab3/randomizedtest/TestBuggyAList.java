@@ -19,6 +19,7 @@ public class TestBuggyAList {
         correct.addLast(5);
         correct.addLast(6);
 
+
         broken.addLast(4);
         broken.addLast(5);
         broken.addLast(6);

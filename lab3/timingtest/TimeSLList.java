@@ -31,13 +31,20 @@ public class TimeSLList {
         System.out.println("Timing table for getLast");
         int M = 10000;
 
+
+
         for(int N : testNums)
         {
             SLList<Integer> testList = new SLList<>();
-            Stopwatch sw = new Stopwatch();
+
             for(int i = 0; i < N ; i++)
             {
                 testList.addLast(i);
+            }
+            Stopwatch sw = new Stopwatch();
+            for(int i = 0; i < M ; i++)
+            {
+                testList.getLast();
             }
             Double timeInseconds = sw.elapsedTime();
             Ns.addLast(N);

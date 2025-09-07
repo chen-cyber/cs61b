@@ -35,6 +35,10 @@ public class SLList<Item> {
 	public void addFirst(Item x) {
 		sentinel.next = new IntNode(x, sentinel.next);
 		size = size + 1;
+		if(size == 1)
+		{
+			lastNode = sentinel.next;
+		}
 	}
 
 	/** Returns the first item in the list. */
@@ -56,15 +60,15 @@ public class SLList<Item> {
 
 	/** returns last item in the list */
 	public Item getLast() {
-		//IntNode p = sentinel;
+		IntNode p = sentinel;
 
 		/* Advance p to the end of the list. */
-		/*while (p.next != null) {
+		while (p.next != null) {
 			p = p.next;
 		}
 
-		return p.item;*/
-		return lastNode.item;
+		return p.item;
+		//return lastNode.item;
 	}
 
 

@@ -3,7 +3,7 @@ package deque;
 
 import java.util.Iterator;
 
-public class ArrayDeque <T> implements Iterable<T>{
+public class ArrayDeque<T> implements Deque<T>, Iterable<T>{
     private T[] items;
     private int nextFirst;
     private int nextLast;
@@ -18,7 +18,16 @@ public class ArrayDeque <T> implements Iterable<T>{
         nextFirst = 3;
         nextLast = 4;
     }
-
+    public ArrayDeque(T i)
+    {
+        fixedSize = 8;
+        items = (T[]) new Object[fixedSize];
+        size = 1;
+        items[3] = i;
+        nextFirst = 2;
+        nextLast = 4;
+    }
+    @Override
     public void addFirst(T i)
     {
         if(isFull())
@@ -29,6 +38,7 @@ public class ArrayDeque <T> implements Iterable<T>{
         size += 1;
         nextFirst = Math.floorMod(nextFirst - 1, fixedSize);
     }
+    @Override
     public void addLast(T i)
     {
         if(isFull())
@@ -39,6 +49,7 @@ public class ArrayDeque <T> implements Iterable<T>{
         size += 1;
         nextLast = Math.floorMod(nextLast + 1, fixedSize);
     }
+    @Override
     public int size()
     {
         return size;
@@ -47,10 +58,7 @@ public class ArrayDeque <T> implements Iterable<T>{
     {
         return fixedSize;
     }
-    public boolean isEmpty()
-    {
-        return size == 0;
-    }
+    @Override
     public T removeFirst()
     {
         if(isEmpty())
@@ -67,6 +75,7 @@ public class ArrayDeque <T> implements Iterable<T>{
         }
         return result;
     }
+    @Override
     public T removeLast()
     {
         if(isEmpty())
@@ -102,6 +111,7 @@ public class ArrayDeque <T> implements Iterable<T>{
         items = temp;
         fixedSize = capacity;
     }
+    @Override
     public T get(int index)
     {
         if(index < 0 || index >= size)
@@ -112,6 +122,7 @@ public class ArrayDeque <T> implements Iterable<T>{
         return items[current];
     }
     // printDeque
+    @Override
     public void printDeque()
     {
         if(size == 0)
